@@ -1,4 +1,4 @@
 {
-  "main":"com.objectpartners.ping.PingVerticle",
+  "main":"com.objectpartners.hello.HelloVerticle",
   "auto-redeploy": true
 }

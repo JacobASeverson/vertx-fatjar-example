@@ -1,0 +1,4 @@
+{
+  "main":"com.objectpartners.world.WorldVerticle",
+  "auto-redeploy": true
+}

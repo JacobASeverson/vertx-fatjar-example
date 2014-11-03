@@ -11,22 +11,22 @@ public class HelloVerticle extends Verticle {
 
     public void start() {
 
-        container.deployModule("com.objectpartners~world-mod~1.0.0-SNAPSHOT", new Handler<AsyncResult<String>>() {
+        container.deployModule("com.objectpartners~world-mod~0.1", new Handler<AsyncResult<String>>() {
             @Override
             public void handle(AsyncResult<String> event) {
                 if (event.succeeded()) {
                     container.logger().info("successfully deployed the world module...");
+
+                    vertx.eventBus().send("world-address", "Hello", new Handler<Message<String>>() {
+                        @Override
+                        public void handle(Message<String> event) {
+                            container.logger().info("Received message: " + event.body());
+                        }
+                    });
                 } else {
                     container.logger().info("world module did not deploy...");
                     event.cause().printStackTrace();
                 }
-            }
-        });
-
-        vertx.eventBus().send("world-address", "Hello", new Handler<Message<String>>() {
-            @Override
-            public void handle(Message<String> event) {
-                container.logger().info("Received message: " + event.body());
             }
         });
     }
