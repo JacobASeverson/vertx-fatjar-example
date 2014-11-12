@@ -9,5 +9,3 @@ maven:http://oss.sonatype.org/content/repositories/snapshots
 
 # Bintray
 bintray:http://dl.bintray.com
-
-old:http://github.com/JacobASeverson/vertx-fatjar-example/blob/master/world-mod/build/libs/world-mod-1.0.0-SNAPSHOT-fat.jar
